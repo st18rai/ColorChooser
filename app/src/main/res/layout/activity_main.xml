@@ -15,35 +15,37 @@
         android:layout_margin="16dp"
         app:cardCornerRadius="16dp">
 
-        <LinearLayout
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp">
 
             <LinearLayout
-                android:id="@+id/palette"
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:background="@color/black"
-                android:orientation="vertical">
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
                 android:orientation="vertical"
-                android:padding="40dp">
+                android:padding="40dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/guideline2">
 
                 <SeekBar
                     android:id="@+id/seekBarR"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:max="255"/>
 
                 <SeekBar
                     android:id="@+id/seekBarG"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:max="255"/>
 
@@ -51,8 +53,34 @@
                     android:id="@+id/seekBarB"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:max="255"/>
             </LinearLayout>
-        </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/palette"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/black"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toTopOf="@+id/guideline2"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+            </LinearLayout>
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.5"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="556dp"/>
+        </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
 </RelativeLayout>
