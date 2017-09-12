@@ -1,5 +1,6 @@
 package com.st18apps.color;
 
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.LinearLayout;
@@ -15,6 +16,7 @@ public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBar
     private TextView tvRed;
     private TextView tvGreen;
     private TextView tvBlue;
+    private TextView tvCode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBar
         tvRed = (TextView) findViewById(R.id.textViewR);
         tvGreen = (TextView) findViewById(R.id.textViewG);
         tvBlue = (TextView) findViewById(R.id.textViewB);
+        tvCode = (TextView) findViewById(R.id.textViewColorCode);
 
         red.setOnSeekBarChangeListener(this);
         green.setOnSeekBarChangeListener(this);
@@ -36,30 +39,23 @@ public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBar
     }
 
     private void updateColor() {
-        int redColor, greenColor, blueColor;
+        int redColor, greenColor, blueColor, colorCode;
+        String colorCodeText;
         redColor = red.getProgress();
         greenColor = green.getProgress();
         blueColor = blue.getProgress();
 
-        palette.setBackgroundColor(0xff000000 + redColor * 0x10000 + greenColor * 0x100
-                + blueColor);
+        colorCode = 0xff000000 + redColor * 0x10000 + greenColor * 0x100
+                + blueColor;
+        colorCodeText = Integer.toHexString(colorCode).substring(2);
+        palette.setBackgroundColor(colorCode);
 
         tvRed.setText(getResources().getString(R.string.red) + " " + String.valueOf(red.getProgress()));
         tvGreen.setText(getResources().getString(R.string.green) + " " + String.valueOf(green.getProgress()));
         tvBlue.setText(getResources().getString(R.string.blue) + " " + String.valueOf(blue.getProgress()));
+        tvCode.setText(getResources().getString(R.string.color_code) + " " + colorCodeText);
 
     }
-
-//    private void updateColor2(){
-//        String redColor, greenColor, blueColor, colorCode;
-//        redColor = String.valueOf(red.getProgress());
-//        greenColor = String.valueOf(green.getProgress());
-//        blueColor = String.valueOf(blue.getProgress());
-//
-//        colorCode = redColor + greenColor + blueColor;
-//        palette.setBackgroundColor(Integer.parseInt(colorCode));
-//        textView.setText("Current color: " + colorCode);
-//    }
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
