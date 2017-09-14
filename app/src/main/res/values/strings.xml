@@ -3,5 +3,7 @@
     <string name="red">Red:</string>
     <string name="green">Green:</string>
     <string name="blue">Blue:</string>
-    <string name="color_code">Color code: #</string>
+    <string name="color_code">Code: #</string>
+    <string name="ok">OK</string>
+    <string name="enter_color_code">Enter code</string>
 </resources>

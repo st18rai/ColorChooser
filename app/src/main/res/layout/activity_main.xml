@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.st18apps.color.MainActivity">
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context="com.st18apps.color.MainActivity">
 
 
     <android.support.v7.widget.CardView
@@ -22,13 +22,12 @@
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="8dp"
                 android:orientation="vertical"
-                android:padding="30dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -39,48 +38,70 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/red" />
+                    android:text="@string/red"/>
 
                 <SeekBar
                     android:id="@+id/seekBarR"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:max="255" />
+                    android:max="255"/>
 
                 <TextView
                     android:id="@+id/textViewG"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/green" />
+                    android:text="@string/green"/>
 
                 <SeekBar
                     android:id="@+id/seekBarG"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp"
-                    android:max="255" />
+                    android:max="255"/>
 
                 <TextView
                     android:id="@+id/textViewB"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/blue" />
+                    android:text="@string/blue"/>
 
                 <SeekBar
                     android:id="@+id/seekBarB"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:max="255" />
+                    android:max="255"/>
 
-                <TextView
-                    android:id="@+id/textViewColorCode"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/color_code"
-                    android:gravity="center"/>
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textViewColorCode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/color_code"
+                        android:textSize="20sp"
+                        android:layout_weight="1"/>
+
+                    <EditText
+                        android:id="@+id/editText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="7"
+                        android:layout_weight="1"
+                        android:hint="@string/enter_color_code"
+                        android:inputType="textPersonName"/>
+
+                    <Button
+                        android:id="@+id/button"
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ok"/>
+                </LinearLayout>
+
 
             </LinearLayout>
 
@@ -107,7 +128,7 @@
                 android:orientation="horizontal"
                 app:layout_constraintGuide_percent="0.5"
                 tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="556dp" />
+                tools:layout_editor_absoluteY="556dp"/>
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
 </RelativeLayout>
